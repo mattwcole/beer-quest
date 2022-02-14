@@ -1,0 +1,14 @@
+﻿{
+  "profiles": {
+    "BeerQuestApi": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:5784;http://localhost:5783",
+      "launchUrl": "pubs",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
