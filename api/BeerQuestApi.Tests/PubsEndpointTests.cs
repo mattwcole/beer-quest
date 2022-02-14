@@ -44,6 +44,7 @@ namespace BeerQuestApi.Tests
             var pubs = await response.Content.ReadFromJsonAsync<Pub[]>();
             var golfPub = pubs![1];
 
+            Assert.Equal(2, golfPub.Id);
             Assert.Equal("\"Golf\" Cafe Bar", golfPub.Name);
             Assert.Equal("Bar reviews", golfPub.Category);
             Assert.Equal("http://leedsbeer.info/?p=1382", golfPub.Url);

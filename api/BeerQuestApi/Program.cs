@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using CsvHelper;
 using CsvHelper.Configuration;
+using CsvHelper.Configuration.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -20,9 +21,13 @@ namespace BeerQuestApi
             using var streamReader = File.OpenText("leedsbeerquest.csv");
             using var csvReader = new CsvReader(streamReader, new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                PrepareHeaderForMatch = args => args.Header.ToLower().Replace("_", "")
+                PrepareHeaderForMatch = args => args.Header.ToLower().Replace("_", ""),
+                HeaderValidated = null
             });
-            return csvReader.GetRecords<Pub>().ToList();
+
+            return csvReader.GetRecords<Pub>()
+                .Select((pub, index) => pub with {Id = index + 1})
+                .ToList();
         });
 
         public static void Main(string[] args) => CreateHostBuilder(args).Build().Run();
@@ -42,6 +47,7 @@ namespace BeerQuestApi
     }
     
     public record Pub(
+        [Ignore] int Id,
         string Name,
         string Category,
         string Url,
