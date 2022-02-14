@@ -9,5 +9,5 @@ ARG REACT_APP_API_HOST
 RUN npm run test && npm run build
 
 FROM nginx:1.21-alpine
-COPY nginx.conf /etc/nginx/conf.d
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /src/build /usr/share/nginx/html

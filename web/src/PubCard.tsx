@@ -33,6 +33,7 @@ const PubCard: React.FC<PubCardProps> = ({ pub, ...props }) => {
           variant="top"
           src={pub.thumbnail}
           style={{ height: 200, objectFit: "cover" }}
+          alt={pub.name}
         />
       </LazyLoad>
       <Card.Body>
