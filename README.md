@@ -8,7 +8,7 @@ Apps may be run natively or in production mode with Docker.
 
 ### Docker
 
-Run `docker-compose up` from the root of the repository. Browse the web app at http://localhost:8080. The API has a single endpoint at http://localhost:8081/pubs.
+Run `docker-compose up` from the root of the repository. This will run tests and build/run containers for both apps. Browse the web app at http://localhost:8080. The API has a single endpoint at http://localhost:8081/pubs.
 
 ### API
 
@@ -32,7 +32,7 @@ Requires NodeJS 16. Navigate to the `web` directory and run npm scripts as requi
 - `npm run test` - run jest tests
 - `npm run build` - build production bundle
 
-Simply fetches list of pubs and renders entire list with text filter. Images are lazy loaded and fetched as they scroll into view. Minimal test example includes testing user interaction. Libraries/tools:
+Simply fetches list of pubs and renders entire list with text filter. Images are lazy loaded and fetched as they scroll into view. Page is responsive thanks to Bootstrap. Minimal test example includes testing user interaction. Libraries/tools:
 
 - Create React App
 - React Bootstrap
